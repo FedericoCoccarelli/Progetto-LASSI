@@ -1,0 +1,45 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+
+
+<h1> <%= @mvg.name %> </h1>
+
+<hr>
+
+<h2> Answers </h2>
+
+<% if @mvg.answers.empty? %>
+ <h3> No answers yet! </h3>
+<% end %>
+
+<%@mvg.answers.each do |answer| %>
+	<p>
+		<bf>Body: </bf><%= answer.body %> <br>
+		<bf>Score: </bf><%= answer.score %> <br>
+	 <bf>Question: </bf><%= answer.question.title %> <br>
+  </p>
+
+	<p>
+  	<ul>
+  	<li> <%= link_to "Edit Answer", edit_question_answer_path(answer.question, answer)  %></li>
+  	<li><%= link_to 'Delete Answer', [answer.question, answer],
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+	</li>
+	</ul>
+
+<% end %>
+
+<h2> Other Actions </h2>
+
+<ul>
+<li> <%= link_to "Edit Profile", edit_questiongoer_path(@mvg.id) %></li>
+<li><%= link_to "Destroy", questiongoer_path(@mvg.id), method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+<li>
+	<%= link_to "Back Question List", questions_path %>
+</li>
+</ul>

@@ -1,0 +1,48 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+
+<h1>Question List</h1>
+
+ <table style="width:100%">
+  <tr>
+    <th>Title</th>
+    <th>Director</th>
+    <th>Year</th>
+    <th>Commands</th>
+  </tr>
+
+  <% @questions.each do |question| %>
+  <tr>
+    <td><%= question.title %></td>
+    <td><%= question.author %></td>
+    <td><%= question.date %></td>
+    <td><table style="width:100%">
+    	<td><%= link_to "Edit", edit_question_path(question.id) %></td>
+		<td><%= link_to "Destroy", question_path(question.id), method: :delete,
+                  data: { confirm: "Are you sure?" } %></td>
+    	<td><%= link_to "Answers", question_path(question.id) %></td>
+  		</table>
+	</td>
+  </tr>
+  <% end %> 
+ 
+</table> 
+
+<hr>
+
+<h2> Actions </h2>
+
+<ul>
+
+<li><%= link_to "Add A New Question", new_question_path %></li>
+<li><%= link_to "List Questiongoers", questiongoers_path %></li>
+<li><%= link_to "Add A New Questiongoer", new_questiongoer_path %></li>
+</ul>
+
+
+
+
+

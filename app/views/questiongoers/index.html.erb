@@ -1,0 +1,47 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+
+<h1>Questiongoers List</h1>
+
+ <table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Commands</th>
+  </tr>
+
+  <% @mvgs.each do |mvg| %>
+  <tr>
+    <td><%= mvg.name %></td>
+    <td><table style="width:100%">  
+		<td><%= link_to "Show Details", questiongoer_path(mvg.id)%></td>
+    <td><%= link_to "Destroy", questiongoer_path(mvg.id), method: :delete,
+                  data: { confirm: "Are you sure?" } %></td>
+  	</table>
+	</td>
+  </tr>
+  <% end %> 
+ 
+</table> 
+
+
+
+<h2> Actions </h2>
+
+<ul>
+<li><%= link_to "Add A New Questiongoer", new_questiongoer_path %></li>
+<li><%= link_to "Back Question List", questions_path %></li>
+
+</ul>
+
+
+
+
+</ul>
+
+
+
+
+

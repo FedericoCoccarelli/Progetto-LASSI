@@ -1,0 +1,13 @@
+<h1>Add a New Questiongoer</h1>
+
+<%= form_with model: @mvg do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+ 
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+

@@ -1,0 +1,84 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+
+
+<h1> <%= @question.title %> </h1>
+
+<h2> Question Details </h2>
+
+<p>Title: <%= @question.title %></p>
+
+<p>Director: <%= @question.author %></p>
+
+<p>Year: <%= @question.date %></p>
+
+
+<hr>
+
+<h2> Answers </h2>
+
+<% if @question.answers.empty? %>
+ <h3> No answers yet! </h3>
+<% end %>
+
+<%@question.answers.each do |answer| %>
+	<p>
+		<bf>Body: </bf><%= answer.body %> <br>
+		<bf>Score: </bf><%= answer.score %> <br>
+	 <bf>Author: </bf><%=link_to answer.questiongoer.name, questiongoer_path(answer.questiongoer) %> <br>
+  </p>
+
+	<p>
+  	<ul>
+  	<li> <%= link_to "Edit Answer", edit_question_answer_path(answer.question, answer)  %></li>
+  	<li><%= link_to 'Delete Answer', [answer.question, answer],
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+	</li>
+	</ul>
+
+<% end %>
+
+<hr>
+
+<h2> Add a Answer </h2>
+
+<%= form_with model: [ @question, @question.answers.build ] do |form| %>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.label :score %><br>
+    <%= form.collection_select :score, [1,2,3,4,5,6,7,8,9,10], :to_i, :to_s%>
+  </p>
+
+  <p>
+    <%= form.label :questiongoer %><br>
+    <%= form.collection_select :questiongoer, Questiongoer.all, :id, :name%>
+  </p>
+
+  <p>
+  	
+    <%= form.submit "Save Answer" %>
+  </p>
+<% end %>
+
+<hr>
+
+<h2> Other Actions </h2>
+
+<ul>
+
+<li><%= link_to "Edit", edit_question_path(@question.id) %></li>
+<li><%= link_to "Destroy", question_path(@question.id), method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+<li><%= link_to "Answers", question_path(@question.id) %></li>
+
+<li>
+	<%= link_to "Back Question List", questions_path %>
+</li>
+</ul>
