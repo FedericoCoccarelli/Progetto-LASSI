@@ -1506,3 +1506,283 @@ Processing by QuestionsController#index as HTML
 Completed 200 OK in 23ms (Views: 17.3ms | ActiveRecord: 0.5ms | Allocations: 5681)
 
 
+Started GET "/" for 127.0.0.1 at 2021-07-09 17:46:02 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 21.0ms | Allocations: 4537)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 40.1ms | Allocations: 11374)
+Completed 200 OK in 125ms (Views: 45.6ms | ActiveRecord: 2.5ms | Allocations: 23869)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2021-07-09 17:46:04 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (ActiveRecord: 0.2ms | Allocations: 4804)
+
+
+Started GET "/" for 127.0.0.1 at 2021-07-09 17:46:04 +0200
+Processing by QuestionsController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 368)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:46:04 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 2.3ms | Allocations: 816)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 13.3ms | Allocations: 3695)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | Allocations: 6983)
+Completed 200 OK in 35ms (Views: 31.7ms | ActiveRecord: 0.0ms | Allocations: 9302)
+
+
+Started POST "/users/auth/google_oauth2" for 127.0.0.1 at 2021-07-09 17:46:08 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:46:18 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 243)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1207)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 4413)
+Completed 200 OK in 39ms (Views: 15.8ms | ActiveRecord: 0.0ms | Allocations: 5247)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:46:47 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 234)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 4186)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 4895)
+
+
+Started POST "/users/auth/google_oauth2" for 127.0.0.1 at 2021-07-09 17:46:49 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:46:51 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 234)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 4168)
+Completed 200 OK in 15ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4861)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:47:20 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 234)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 4168)
+Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 4860)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:47:28 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 2.3ms | Allocations: 848)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 18.3ms | Allocations: 5922)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 34.5ms | Allocations: 12699)
+Completed 200 OK in 103ms (Views: 46.8ms | ActiveRecord: 0.7ms | Allocations: 22216)
+
+
+Started POST "/users/auth/google_oauth2" for 127.0.0.1 at 2021-07-09 17:47:30 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:49:03 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 242)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1206)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 4398)
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 5248)
+
+
+Started POST "/users/auth/google_oauth2" for 127.0.0.1 at 2021-07-09 17:49:07 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:49:09 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 234)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 4170)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 4875)
+
+
+Started POST "/users/auth/google_oauth2" for 127.0.0.1 at 2021-07-09 17:49:34 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:49:37 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 234)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 4170)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.0ms | Allocations: 4874)
+
+
+Started POST "/users/auth/google_oauth2" for 127.0.0.1 at 2021-07-09 17:49:38 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:49:40 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 234)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 4184)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 4878)
+
+
+Started POST "/users/auth/google_oauth2" for 127.0.0.1 at 2021-07-09 17:53:07 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:53:36 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 234)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 4174)
+Completed 200 OK in 13ms (Views: 12.1ms | Allocations: 4863)
+
+
+Started POST "/users/auth/google_oauth2" for 127.0.0.1 at 2021-07-09 17:53:41 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:53:48 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 234)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 4168)
+Completed 200 OK in 12ms (Views: 10.7ms | Allocations: 4856)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:54:48 +0200
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 2.3ms | Allocations: 847)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 22.3ms | Allocations: 5921)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 42.1ms | Allocations: 12698)
+Completed 200 OK in 89ms (Views: 51.1ms | ActiveRecord: 1.7ms | Allocations: 22744)
+
+
+Started POST "/users/auth/google_oauth2" for 127.0.0.1 at 2021-07-09 17:54:50 +0200
+Started GET "/users/auth/google_oauth2/callback?state=bb9f7969c20935987c373f5b213634eb2155edbbe67e73bb&code=4%2F0AX4XfWhyHY86kqzOu1R1vnmLcfQLKhnfeqcQp9Mcq3ZoaqTJu60B1RuEtOa7UoQCzrqqaw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for 127.0.0.1 at 2021-07-09 17:55:28 +0200
+Processing by Users::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"bb9f7969c20935987c373f5b213634eb2155edbbe67e73bb", "code"=>"4/0AX4XfWhyHY86kqzOu1R1vnmLcfQLKhnfeqcQp9Mcq3ZoaqTJu60B1RuEtOa7UoQCzrqqaw", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "federicococcarelli2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:11:in `from_omniauth'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:14:in `from_omniauth'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "federicococcarelli2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:14:in `from_omniauth'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "federicococcarelli2@gmail.com"], ["encrypted_password", "$2a$12$1KSpozqU6ZTYJ6WCtMHLP.a7Upf9BadaAY88tU6nQZbzxwxlpLZxK"], ["created_at", "2021-07-09 15:55:29.350290"], ["updated_at", "2021-07-09 15:55:29.350290"]]
+  ↳ app/models/user.rb:14:in `from_omniauth'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:14:in `from_omniauth'
+Redirected to http://localhost:3000/
+Completed 302 Found in 309ms (ActiveRecord: 4.2ms | Allocations: 9396)
+
+
+Started GET "/" for 127.0.0.1 at 2021-07-09 17:55:29 +0200
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 36.9ms | Allocations: 4255)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 49.8ms | Allocations: 7577)
+Completed 200 OK in 91ms (Views: 77.4ms | ActiveRecord: 1.6ms | Allocations: 11930)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2021-07-09 17:55:37 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.2ms | Allocations: 2637)
+
+
+Started GET "/" for 127.0.0.1 at 2021-07-09 17:55:37 +0200
+Processing by QuestionsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 299)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:55:37 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 242)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 10.4ms | Allocations: 1175)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 4371)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 0.0ms | Allocations: 5116)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:55:39 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"prova@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "prova@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 295ms (ActiveRecord: 0.2ms | Allocations: 4306)
+
+
+Started GET "/" for 127.0.0.1 at 2021-07-09 17:55:39 +0200
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 868)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 4067)
+Completed 200 OK in 24ms (Views: 15.3ms | ActiveRecord: 0.4ms | Allocations: 5858)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:55:42 +0200
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms | Allocations: 1513)
+
+
+Started GET "/" for 127.0.0.1 at 2021-07-09 17:55:42 +0200
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 840)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 3922)
+Completed 200 OK in 30ms (Views: 17.5ms | ActiveRecord: 0.5ms | Allocations: 5494)
+
+
