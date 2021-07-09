@@ -6,6 +6,7 @@ ruby '3.0.1'
 
 gem 'devise'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 gem 'omniauth', '~>1.9.1'
 
 
