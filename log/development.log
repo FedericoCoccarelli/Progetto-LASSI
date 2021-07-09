@@ -994,3 +994,515 @@ Processing by QuestiongoersController#index as HTML
 Completed 200 OK in 18ms (Views: 13.8ms | ActiveRecord: 0.2ms | Allocations: 6630)
 
 
+Started GET "/" for 127.0.0.1 at 2021-07-09 16:28:56 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1629)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 53.6ms | Allocations: 8581)
+Completed 200 OK in 79ms (Views: 57.9ms | ActiveRecord: 0.3ms | Allocations: 14059)
+
+
+Started GET "/questiongoers" for 127.0.0.1 at 2021-07-09 16:28:59 +0200
+Processing by QuestiongoersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questiongoers/index.html.erb within layouts/application
+  [1m[36mQuestiongoer Load (0.2ms)[0m  [1m[34mSELECT "questiongoers".* FROM "questiongoers"[0m
+  ↳ app/views/questiongoers/index.html.erb:15
+  Rendered questiongoers/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1222)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 4386)
+Completed 200 OK in 18ms (Views: 14.7ms | ActiveRecord: 0.2ms | Allocations: 6614)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2021-07-09 16:29:02 +0200
+Processing by QuestionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/new.html.erb within layouts/application (Duration: 23.0ms | Allocations: 3452)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.5ms | Allocations: 6538)
+Completed 200 OK in 46ms (Views: 34.5ms | ActiveRecord: 0.8ms | Allocations: 10343)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2021-07-09 16:35:23 +0200
+Processing by QuestionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 864)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 3796)
+Completed 200 OK in 14ms (Views: 13.6ms | Allocations: 4320)
+
+
+Started POST "/questions" for 127.0.0.1 at 2021-07-09 16:35:40 +0200
+Processing by QuestionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "question"=>{"title"=>"domanda1", "author"=>"autore1", "date"=>"data1"}, "commit"=>"Create Question"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/questions_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/questions_controller.rb:17:in `create'
+  [1m[36mQuestion Create (0.7ms)[0m  [1m[32mINSERT INTO "questions" ("title", "author", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "domanda1"], ["author", "autore1"], ["date", 0], ["created_at", "2021-07-09 14:35:40.583520"], ["updated_at", "2021-07-09 14:35:40.583520"]]
+  ↳ app/controllers/questions_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/questions_controller.rb:17:in `create'
+Redirected to http://localhost:3000/questions/2
+Completed 302 Found in 23ms (ActiveRecord: 3.0ms | Allocations: 6139)
+
+
+Started GET "/questions/2" for 127.0.0.1 at 2021-07-09 16:35:40 +0200
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mAnswer Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "answers" WHERE "answers"."question_id" = ? LIMIT ?[0m  [["question_id", 2], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:23
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ?[0m  [["question_id", 2]]
+  ↳ app/views/questions/show.html.erb:27
+  [1m[36mQuestiongoer Load (0.6ms)[0m  [1m[34mSELECT "questiongoers".* FROM "questiongoers"[0m
+  ↳ app/views/questions/show.html.erb:61
+  Rendered questions/show.html.erb within layouts/application (Duration: 49.3ms | Allocations: 11349)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 56.7ms | Allocations: 14327)
+Completed 200 OK in 74ms (Views: 54.1ms | ActiveRecord: 3.6ms | Allocations: 18209)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2021-07-09 16:35:46 +0200
+Processing by QuestionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 866)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 3810)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 4321)
+
+
+Started GET "/" for 127.0.0.1 at 2021-07-09 16:35:47 +0200
+Processing by QuestionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 861)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3802)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.2ms | Allocations: 4242)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2021-07-09 16:36:08 +0200
+Processing by QuestionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 846)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 3798)
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 4240)
+
+
+Started POST "/questions" for 127.0.0.1 at 2021-07-09 16:36:18 +0200
+Processing by QuestionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "question"=>{"title"=>"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "author"=>"a", "date"=>"a"}, "commit"=>"Create Question"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/questions_controller.rb:17:in `create'
+  [1m[36mQuestion Create (0.5ms)[0m  [1m[32mINSERT INTO "questions" ("title", "author", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"], ["author", "a"], ["date", 0], ["created_at", "2021-07-09 14:36:18.115922"], ["updated_at", "2021-07-09 14:36:18.115922"]]
+  ↳ app/controllers/questions_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/questions_controller.rb:17:in `create'
+Redirected to http://localhost:3000/questions/3
+Completed 302 Found in 16ms (ActiveRecord: 2.3ms | Allocations: 4649)
+
+
+Started GET "/questions/3" for 127.0.0.1 at 2021-07-09 16:36:18 +0200
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mAnswer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "answers" WHERE "answers"."question_id" = ? LIMIT ?[0m  [["question_id", 3], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:23
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ?[0m  [["question_id", 3]]
+  ↳ app/views/questions/show.html.erb:27
+  [1m[36mQuestiongoer Load (0.1ms)[0m  [1m[34mSELECT "questiongoers".* FROM "questiongoers"[0m
+  ↳ app/views/questions/show.html.erb:61
+  Rendered questions/show.html.erb within layouts/application (Duration: 19.0ms | Allocations: 3378)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 28.6ms | Allocations: 6307)
+Completed 200 OK in 34ms (Views: 28.9ms | ActiveRecord: 1.1ms | Allocations: 7282)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2021-07-09 16:36:21 +0200
+Processing by QuestionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 846)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 3775)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 4215)
+
+
+Started GET "/" for 127.0.0.1 at 2021-07-09 16:36:21 +0200
+Processing by QuestionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 932)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 3873)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.1ms | Allocations: 4312)
+
+
+Started GET "/questions/3/edit" for 127.0.0.1 at 2021-07-09 16:36:39 +0200
+Processing by QuestionsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/edit.html.erb within layouts/application
+  Rendered questions/edit.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1152)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 4081)
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.1ms | Allocations: 5215)
+
+
+Started DELETE "/questions/3" for 127.0.0.1 at 2021-07-09 16:36:45 +0200
+Processing by QuestionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:29:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/questions_controller.rb:30:in `destroy'
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ?[0m  [["question_id", 3]]
+  ↳ app/controllers/questions_controller.rb:30:in `destroy'
+  [1m[36mQuestion Destroy (0.2ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/questions_controller.rb:30:in `destroy'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/questions_controller.rb:30:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 2.3ms | Allocations: 5603)
+
+
+Started GET "/" for 127.0.0.1 at 2021-07-09 16:36:45 +0200
+Processing by QuestionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 835)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 3790)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.2ms | Allocations: 4226)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2021-07-09 16:43:01 +0200
+Processing by QuestionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 846)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 3775)
+Completed 200 OK in 17ms (Views: 15.8ms | Allocations: 4214)
+
+
+Started POST "/questions" for 127.0.0.1 at 2021-07-09 16:43:04 +0200
+Processing by QuestionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "question"=>{"title"=>"sfasf", "author"=>"afadf", "date"=>"afa"}, "commit"=>"Create Question"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/questions_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/questions_controller.rb:17:in `create'
+  [1m[36mQuestion Create (0.4ms)[0m  [1m[32mINSERT INTO "questions" ("title", "author", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "sfasf"], ["author", "afadf"], ["date", 0], ["created_at", "2021-07-09 14:43:04.347316"], ["updated_at", "2021-07-09 14:43:04.347316"]]
+  ↳ app/controllers/questions_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (14.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/questions_controller.rb:17:in `create'
+Redirected to http://localhost:3000/questions/4
+Completed 302 Found in 34ms (ActiveRecord: 14.8ms | Allocations: 4153)
+
+
+Started GET "/questions/4" for 127.0.0.1 at 2021-07-09 16:43:04 +0200
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mAnswer Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "answers" WHERE "answers"."question_id" = ? LIMIT ?[0m  [["question_id", 4], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:23
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ?[0m  [["question_id", 4]]
+  ↳ app/views/questions/show.html.erb:27
+  [1m[36mQuestiongoer Load (0.3ms)[0m  [1m[34mSELECT "questiongoers".* FROM "questiongoers"[0m
+  ↳ app/views/questions/show.html.erb:61
+  Rendered questions/show.html.erb within layouts/application (Duration: 15.5ms | Allocations: 3340)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 6270)
+Completed 200 OK in 30ms (Views: 24.1ms | ActiveRecord: 1.2ms | Allocations: 7253)
+
+
+Started GET "/questions" for 127.0.0.1 at 2021-07-09 16:43:07 +0200
+Processing by QuestionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 948)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 3889)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.3ms | Allocations: 4329)
+
+
+Started DELETE "/questions/4" for 127.0.0.1 at 2021-07-09 16:43:11 +0200
+Processing by QuestionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"4"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:29:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/questions_controller.rb:30:in `destroy'
+  [1m[36mAnswer Load (0.1ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ?[0m  [["question_id", 4]]
+  ↳ app/controllers/questions_controller.rb:30:in `destroy'
+  [1m[36mQuestion Destroy (0.2ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/questions_controller.rb:30:in `destroy'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/questions_controller.rb:30:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms (ActiveRecord: 2.6ms | Allocations: 5495)
+
+
+Started GET "/" for 127.0.0.1 at 2021-07-09 16:43:11 +0200
+Processing by QuestionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 835)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 3776)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.2ms | Allocations: 4212)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2021-07-09 16:45:42 +0200
+Processing by QuestionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 846)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 3791)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 4246)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20210709145308)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210709145308"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2021-07-09 17:08:14 +0200
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+Completed 401 Unauthorized in 53ms (ActiveRecord: 0.0ms | Allocations: 2750)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:08:14 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 2.2ms | Allocations: 710)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 42.9ms | Allocations: 4123)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 165.9ms | Allocations: 25489)
+Completed 200 OK in 220ms (Views: 175.7ms | ActiveRecord: 1.3ms | Allocations: 33948)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:08:23 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"prova@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "prova@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 22ms (ActiveRecord: 0.5ms | Allocations: 2825)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"prova@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 176)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1155)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 4354)
+Completed 200 OK in 296ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 6275)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:08:26 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"prova@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "prova@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.5ms | Allocations: 1663)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"prova@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 160)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1020)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 4070)
+Completed 200 OK in 310ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 4706)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-07-09 17:08:29 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_error_messages.html.erb (Duration: 1.3ms | Allocations: 244)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 2.1ms | Allocations: 163)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 2133)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 5372)
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 0.0ms | Allocations: 7029)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-07-09 17:08:33 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"prova@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "prova@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_error_messages.html.erb (Duration: 1.7ms | Allocations: 643)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 113)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2262)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 5418)
+Completed 200 OK in 312ms (Views: 18.8ms | ActiveRecord: 0.5ms | Allocations: 12600)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-07-09 17:10:29 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"prova@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "prova@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_error_messages.html.erb (Duration: 1.5ms | Allocations: 476)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 112)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 2019)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.1ms | Allocations: 5025)
+Completed 200 OK in 333ms (Views: 27.1ms | ActiveRecord: 0.8ms | Allocations: 10272)
+
+
+Started GET "/" for 127.0.0.1 at 2021-07-09 17:10:42 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+Completed 401 Unauthorized in 18ms (ActiveRecord: 0.0ms | Allocations: 2530)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:10:42 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 2.4ms | Allocations: 710)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 11.9ms | Allocations: 3850)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 32.8ms | Allocations: 10577)
+Completed 200 OK in 58ms (Views: 40.6ms | ActiveRecord: 1.1ms | Allocations: 18784)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-07-09 17:10:44 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_error_messages.html.erb (Duration: 1.2ms | Allocations: 244)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 163)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 2131)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 5372)
+Completed 200 OK in 26ms (Views: 24.5ms | ActiveRecord: 0.0ms | Allocations: 7056)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-07-09 17:10:54 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"prova@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "prova@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "prova@gmail.com"], ["encrypted_password", "$2a$12$U1q7POmfRpXNxIC6w9tS0O6TcYbDwrcCQcmgmT6n8fpQxE0OYiUOS"], ["created_at", "2021-07-09 15:10:55.159209"], ["updated_at", "2021-07-09 15:10:55.159209"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 310ms (ActiveRecord: 4.0ms | Allocations: 11836)
+
+
+Started GET "/" for 127.0.0.1 at 2021-07-09 17:10:55 +0200
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 15.4ms | Allocations: 4229)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 7514)
+Completed 200 OK in 38ms (Views: 27.3ms | ActiveRecord: 1.3ms | Allocations: 11513)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2021-07-09 17:10:59 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 37ms (ActiveRecord: 0.1ms | Allocations: 2757)
+
+
+Started GET "/" for 127.0.0.1 at 2021-07-09 17:10:59 +0200
+Processing by QuestionsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 298)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:10:59 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 163)
+  Rendered /home/lassi/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1097)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 4283)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.0ms | Allocations: 5028)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-07-09 17:11:01 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"prova@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "prova@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 286ms (ActiveRecord: 0.2ms | Allocations: 3256)
+
+
+Started GET "/" for 127.0.0.1 at 2021-07-09 17:11:01 +0200
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 864)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 4066)
+Completed 200 OK in 23ms (Views: 17.3ms | ActiveRecord: 0.5ms | Allocations: 5681)
+
+
