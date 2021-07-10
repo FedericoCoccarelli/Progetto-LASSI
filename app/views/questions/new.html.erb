@@ -7,6 +7,11 @@
   </div>
 
   <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
     <%= form.label :author %> : <%= current_user.email%><br>
     <%= form.text_area :author , value: current_user.email , :hidden=>true%> 
   </div>
@@ -22,4 +27,13 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<hr>
+
+<h2> Other Actions </h2>
+<ul>
+
+<li>
+  <%= link_to "Back Question List", questions_path %>
+</li>
 

@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_07_09_145308) do
 
   create_table "questions", force: :cascade do |t|
     t.string "title"
+    t.string "body"
     t.string "author"
     t.date "date"
     t.datetime "created_at", precision: 6, null: false

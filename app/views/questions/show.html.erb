@@ -11,9 +11,11 @@ table, th, td {
 
 <p>Title: <%= @question.title %></p>
 
-<p>Director: <%= @question.author %></p>
+<p>Body: <%= @question.body %></p>
 
-<p>Year: <%= @question.date %></p>
+<p>Author: <%= @question.author %></p>
+
+<p>Date: <%= @question.date %></p>
 
 
 <hr>
@@ -44,7 +46,7 @@ table, th, td {
 
 <hr>
 
-<h2> Add a Answer </h2>
+<h2> Add an Answer </h2>
 
 <%= form_with model: [ @question, @question.answers.build ] do |form| %>
   <p>

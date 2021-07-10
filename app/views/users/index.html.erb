@@ -1,7 +1,17 @@
-<h1>Users#index</h1>
+<h1>List Users</h1>
 <% @users.each do |user| %>
 	<%= user.email %><br/>
 	<%= user.id %><br/>
 	<hr>
 <% end %>
-<p>Find me in app/views/users/index.html.erb</p>
+
+
+<h2> Other Actions </h2>
+
+<ul>
+
+<li>
+	<%= link_to "Back Question List", questions_path %>
+</li>
+</ul>
+

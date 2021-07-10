@@ -7,16 +7,30 @@
   </div>
 
   <div>
-    <%= form.label :author %><br>
-    <%= form.text_area :author %>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.label :author %> : 
+    <%= @question.author.html_safe%>
   </div>
 
   <div>
     <%= form.label :date %><br>
-    <%= form.text_field :date %>
+    <%= form.text_field :date , :disabled => true %>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+
+<hr>
+
+<h2> Other Actions </h2>
+<ul>
+
+<li>
+  <%= link_to "Back Question List", questions_path %>
+</li>

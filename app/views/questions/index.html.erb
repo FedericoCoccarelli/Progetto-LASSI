@@ -9,6 +9,7 @@ table, th, td {
  <table style="width:100%">
   <tr>
     <th>Title</th>
+    <th>Body</th>
     <th>Author</th>
     <th>Date</th>
     <th>Commands</th>
@@ -17,6 +18,7 @@ table, th, td {
   <% @questions.each do |question| %>
   <tr>
     <td><%= question.title %></td>
+    <td><%= question.body %></td>
     <td><%= question.author %></td>
     <td><%= question.date %></td>
     <td><table style="width:100%">
@@ -39,6 +41,7 @@ table, th, td {
 
 <li><%= link_to "Add A New Question", new_question_path %></li>
 <li><%= link_to "List Users", users_path %></li>
+<li><%= link_to "My profile", current_user %></li>
 </ul>
 
 
