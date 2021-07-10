@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_07_09_145308) do
   create_table "questions", force: :cascade do |t|
     t.string "title"
     t.string "author"
-    t.integer "date"
+    t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

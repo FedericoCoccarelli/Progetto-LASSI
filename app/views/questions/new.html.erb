@@ -7,14 +7,16 @@
   </div>
 
   <div>
-    <%= form.label :author %><br>
-    <%= form.text_area :author %>
+    <%= form.label :author %> : <%= current_user.email%><br>
+    <%= form.text_area :author , value: current_user.email , :hidden=>true%> 
   </div>
 
   <div>
-    <%= form.label :date %><br>
-    <%= form.text_field :date %>
+
+    <%= form.label :date %> : <%= Time.now.strftime("%d/%m/%Y %H:%M:%S")%><br>
+    <%= form.text_field :date ,value: Time.now.strftime("%d/%m/%Y %H:%M:%S") , :hidden=>true %>
   </div>
+  <br>
 
   <div>
     <%= form.submit %>
