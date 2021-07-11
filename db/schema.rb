@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_07_09_145308) do
 
   create_table "answers", force: :cascade do |t|
+    t.string "author"
     t.text "body"
     t.integer "score"
     t.integer "question_id", null: false

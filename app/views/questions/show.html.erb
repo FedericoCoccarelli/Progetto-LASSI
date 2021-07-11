@@ -30,16 +30,17 @@ table, th, td {
 	<p>
 		<bf>Body: </bf><%= answer.body %> <br>
 		<bf>Score: </bf><%= answer.score %> <br>
-	 <bf>Author: </bf><%=link_to answer.questiongoer.name, questiongoer_path(answer.questiongoer) %> <br>
+	 <bf>Author: </bf><%= answer.author %> <br>
   </p>
 
 	<p>
   	<ul>
   	<li> <%= link_to "Edit Answer", edit_question_answer_path(answer.question, answer)  %></li>
-  	<li><%= link_to 'Delete Answer', [answer.question, answer],
+    <li><%= link_to 'Delete Answer', [answer.question, answer],
               method: :delete,
               data: { confirm: "Are you sure?" } %>
-	</li>
+  </li>
+
 	</ul>
 
 <% end %>
@@ -59,8 +60,8 @@ table, th, td {
   </p>
 
   <p>
-    <%= form.label :questiongoer %><br>
-    <%= form.collection_select :questiongoer, Questiongoer.all, :id, :name%>
+    <%= form.label :author %> : <%= current_user.email%><br>
+    <%= form.text_area :author , value: current_user.email , :hidden=>true%> 
   </p>
 
   <p>
