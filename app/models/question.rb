@@ -1,5 +1,6 @@
 class Question < ApplicationRecord
 	has_many :answers, dependent: :destroy 
+	scope :filter_by_author, -> (author) {where author: author}
 
 	def averageScore
 		

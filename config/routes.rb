@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   #get "/questions", to:"questions#index"
   root "questions#index"
   resources :users
+  resources :myquestions
   resources :questions do
    resources :answers
   end
