@@ -29,18 +29,29 @@ table, th, td {
 <%@question.answers.each do |answer| %>
 	<p>
 		<bf>Body: </bf><%= answer.body %> <br>
-		<bf>Score: </bf><%= answer.score %> <br>
 	 <bf>Author: </bf><%= answer.author %> <br>
   </p>
 
 	<p>
   	<ul>
-  	<li> <%= link_to "Edit Answer", edit_question_answer_path(answer.question, answer)  %></li>
-    <li><%= link_to 'Delete Answer', [answer.question, answer],
-              method: :delete,
-              data: { confirm: "Are you sure?" } %>
-  </li>
+  	<% if answer.author == current_user.email %>
+      <% if can? :update, Answer %>
+      <li><%= link_to "Edit Answer", edit_question_answer_path(answer.question, answer) %></li>
+      <% end %> 
+      <% else %> 
+        <li>Edit (you're not the author)</li>
+    <% end %>
 
+
+  <% if answer.author == current_user.email || current_user.coolness==2 ||  current_user.coolness==3%>
+      <% if can? :destroy, Answer %>
+      <li><%= link_to 'Delete Answer', [answer.question, answer],
+              method: :delete,
+              data: { confirm: "Are you sure?" } %></li>
+      <% end %> 
+      <% else %> 
+        <li>Destroy (you're not the author)</li>
+    <% end %> 
 	</ul>
 
 <% end %>
@@ -53,10 +64,6 @@ table, th, td {
   <p>
     <%= form.label :body %><br>
     <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.label :score %><br>
-    <%= form.collection_select :score, [1,2,3,4,5,6,7,8,9,10], :to_i, :to_s%>
   </p>
 
   <p>

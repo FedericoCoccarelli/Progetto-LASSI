@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one_an:
+  body: MyText
+  question: one
+  author: admin@gmail.com
+
+two_an:
+  body: MyText
+  question: two
+  author: moderator@gmail.com
+
+three_an:
+  body: MyText
+  question: two
+  author: user@gmail.com

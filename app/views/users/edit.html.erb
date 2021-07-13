@@ -1,0 +1,45 @@
+<h1>Edit User Entry</h1>
+
+<%= form_with model: @user do |form| %>
+  <div>
+    <%= form.label :email %><br>
+    <%= form.text_field :email , :disabled => true %>
+  </div>
+
+  <div>
+    <%= form.label :id %><br>
+    <%= form.text_area :id , :disabled => true %>
+  </div>
+
+  
+  <% if current_user.coolness == 3 %>
+  <div>
+    <%= form.label :coolness %><br>
+    <%= form.collection_select :coolness, [0,1,2,3], :to_i, :to_s%>
+  </div>  
+  <% else%>
+  <div>
+    <%= form.label :coolness %><br>
+    <%= form.collection_select :coolness, [0,1,2], :to_i, :to_s%>
+  </div>
+  <% end %> 
+  
+
+
+  <br>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<hr>
+
+<h2> Other Actions </h2>
+<ul>
+
+<li>
+  <%= link_to "Back List Users", users_path %>
+</li>
+</ul>
+

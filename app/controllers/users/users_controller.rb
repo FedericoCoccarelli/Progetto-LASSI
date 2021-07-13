@@ -10,10 +10,12 @@ class UsersController < ApplicationController
 
   def new
   	@usr = User.new
+
   end
 
   def create
   	@usr = User.new(usr_params)
+
   	if @usr.save
       redirect_to @usr
     else
@@ -40,11 +42,13 @@ def destroy
       render :edit
     end
   end
-
-	private
+	
+  private
     def usr_params
-      params.require(:user).permit(:email)
+      params.require(:user).permit(:email,:coolness).with_defaults(coolness: 0)
     end
+
+
 
 
 end

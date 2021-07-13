@@ -8,6 +8,7 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth', '~>1.9.1'
+gem 'cancancan'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
@@ -57,7 +58,16 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rexml'
+  
+
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end
+
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

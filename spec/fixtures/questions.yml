@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: Domanda1
+  author: admin@gmail.com
+  date: 2021-07-12
+
+two:
+  title: Domanda2
+  author: moderator@gmail.com
+  date: 2021-07-12
+
+three:
+  title: Domanda3
+  author: user@gmail.com
+  date: 2021-07-12

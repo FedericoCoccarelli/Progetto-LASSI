@@ -1,9 +1,67 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>  
+
 <h1>List Users</h1>
-<% @users.each do |user| %>
-	<%= user.email %><br/>
-	<%= user.id %><br/>
-	<hr>
-<% end %>
+
+<table style="width:100%">
+  <tr>
+    <th>Email</th>
+    <th>Id</th>
+    <th>Coolness</th>
+    <th>Role</th>
+    <th>Commands</th>
+  </tr>
+
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.id %></td>
+    <td><%= user.coolness %></td>
+
+    <% if user.coolness == 3 %>
+      <td>Admin</td>
+    <% elsif user.coolness == 2 %> 
+      <td>Moderator</td>
+    <% elsif  user.coolness == 1 %> 
+      <td>User</td>
+    <% else %> 
+      <td>Banned User</td>
+    <% end %> 
+
+    <td>
+    <table style="width:100%">
+    <% if user.email != current_user.email %>
+      <% if can? :update, User %>
+    
+      <td><%= link_to "Edit", edit_user_path(user.id) %></td>
+      <% else %> 
+      <td>Edit</td>
+      <% end %>
+    <% else %> 
+    <td>Edit</td>
+    <% end %> 
+
+    <% if user.email != current_user.email %>
+      <% if can? :destroy, User %>
+		  <td><%= link_to "Destroy", user_path(user.id), method: :delete,
+                  data: { confirm: "Are you sure?" } %></td>
+      <% else %> 
+      <td>Destroy</td>
+      <% end %> 
+    <% else %> 
+    <td>Destroy</td>
+    <% end %> 
+
+  	</table>
+	</td>
+  </tr>
+  <% end %> 
+ 
+</table> 
+
 
 
 <h2> Other Actions </h2>

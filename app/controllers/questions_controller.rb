@@ -13,6 +13,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    authorize! :create, Question, message: "You are not authorized!"
     @question = Question.new(question_params)
     if @question.save
       redirect_to @question
@@ -26,19 +27,25 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
-    @question.destroy
+    authorize! :destroy, Question, message: "You are not authorized!"
+      @question = Question.find(params[:id])
+      if current_user.email==@question.author||current_user.coolness>=2
+        @question.destroy
+      end
 
-    redirect_to root_path
+      redirect_to root_path
   end
 
- def update
-    @question = Question.find(params[:id])
-    if @question.update(question_params)
-      redirect_to @question
-    else
-      render :edit
-    end
+  def update
+    authorize! :update, Question, message: "You are not authorized!"
+      @question = Question.find(params[:id])
+      if current_user.email==@question.author
+        if @question.update(question_params)
+          redirect_to @question
+        end
+      else
+        render :edit
+      end
   end
 
   private
